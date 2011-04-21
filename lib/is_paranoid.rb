@@ -52,6 +52,18 @@ module IsParanoid
             unscoped.find(*args)
           end
 
+          # Return instance of first model matching the query regardless
+          # of whether or not it has been soft-deleted.
+          def first_with_destroyed *args
+            unscoped.first(*args)
+          end
+
+          # Return instance of first model matching the query regardless
+          # of whether or not it has been soft-deleted.
+          def last_with_destroyed *args
+            unscoped.last(*args)
+          end
+
           # Returns true if the requested record exists, even if it has
           # been soft-deleted.
           def exists_with_destroyed? *args
